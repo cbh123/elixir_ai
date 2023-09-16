@@ -1,6 +1,6 @@
 # Potions
 
-**TODO: Add description**
+Helpers for running LLMs in Elixir. Includes ~LLM sigil and chat parsers for OpenAI.
 
 ## Installation
 
@@ -18,4 +18,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/potions>.
-
