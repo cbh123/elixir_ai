@@ -4,14 +4,19 @@ defmodule AI.MixProject do
   def project do
     [
       app: :ai,
-      version: "0.1.0",
+      version: "0.3.1",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       name: "AI",
-      source_url: "https://github.com/cbh123/ai_",
+      source_url: "https://github.com/cbh123/elixir_ai",
+      homepage_url: "https://hexdocs.pm/replicate/readme.html",
       package: package(),
-      description: description()
+      description: description(),
+      docs: [
+        main: "readme",
+        extras: ["README.md"]
+      ]
     ]
   end
 
