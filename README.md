@@ -10,7 +10,7 @@ by adding `potions` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:ai_potions, "~> 0.1.0"},
+    {:potions, "~> 0.1.0"},
   ]
 end
 ```

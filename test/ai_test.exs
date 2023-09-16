@@ -1,7 +1,7 @@
-defmodule PotionsTest do
+defmodule AITest do
   use ExUnit.Case
-  doctest Potions
-  import Potions
+  doctest AI
+  import AI
 
   test "greets the world" do
     assert ~LLM"model:gpt-3.5-turbo user:how do I build an igloo in 10 words?" ==

@@ -1,6 +1,6 @@
-defmodule Potions do
+defmodule AI do
   @moduledoc """
-  Documentation for `Potions`.
+  Documentation for `AI`.
   """
 
   @doc """
