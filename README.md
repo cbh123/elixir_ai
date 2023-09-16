@@ -1,6 +1,6 @@
 # Potions
 
-Helpers for running LLMs in Elixir. Includes ~LLM sigil and chat parsers for OpenAI.
+Helpers for using AI in Elixir. Includes `~LLM` sigil and `chat/1` function for OpenAI generation.
 
 ## Installation
 
@@ -10,7 +10,7 @@ by adding `potions` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:potions, "~> 0.1.0"}
+    {:ai_potions, "~> 0.1.0"},
   ]
 end
 ```

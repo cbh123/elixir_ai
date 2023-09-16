@@ -25,7 +25,8 @@ defmodule Potions.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:openai, "~> 0.5.2"}
+      {:openai, "~> 0.5.2"},
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false}
     ]
   end
 
@@ -35,7 +36,7 @@ defmodule Potions.MixProject do
 
   defp package() do
     [
-      name: "potions",
+      name: "ai",
       files: ~w(lib .formatter.exs mix.exs README*),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/replicate/replicate-elixir"}
