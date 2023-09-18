@@ -20,7 +20,7 @@ iex> ~LLM"model:gpt-3.5-turbo user: how do I build an igloo in 10 words?" |> cha
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `potions` to your list of dependencies in `mix.exs`:
+by adding `ai` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -32,4 +32,4 @@ end
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/potions>.
+be found at <https://hexdocs.pm/ai>.
