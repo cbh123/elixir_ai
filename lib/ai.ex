@@ -4,11 +4,37 @@ defmodule AI do
   """
 
   @doc """
+  Implements the ~l sigil, which parses text into an OpenAI friendly chat completion prompt.
+  ~l works by parsing out the `model`, `system`, `user` and `assistant` keywords.
+
+  Supports string interpolation.
+
+  ## Examples
+  iex> import AI
+  iex> ~l"model: gpt-3.5-turbo system: You are an expert at text to image prompts. Given a description, write a text-to-image prompt. user: sunset"
+  [
+    model: "gpt-3.5-turbo",
+    messages: [
+      %{
+        content: "You are an expert at text to image prompts. Given a description, write a text-to-image prompt.",
+        role: "system"
+      },
+      %{content: "sunset", role: "user"}
+    ]
+  ]
+  """
+  def sigil_l(lines, _opts) do
+   lines |> text_to_prompts()
+  end
+
+  @doc """
+  DEPRECATED: Use ~l instead. ~LLM doesn't work with string interpolation.
+
   Implements the ~LLM sigil, which parses text into an OpenAI friendly chat completion prompt.
   ~LLM works by parsing out the `model`, `system`, `user` and `assistant` keywords.
 
   ## Examples
-  iex> import Potions
+  iex> import AI
   iex> ~LLM"model: gpt-3.5-turbo system: You are an expert at text to image prompts. Given a description, write a text-to-image prompt. user: sunset"
   [
     model: "gpt-3.5-turbo",
