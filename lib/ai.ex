@@ -47,43 +47,31 @@ defmodule AI do
     ]
   ]
   """
+
+  @keywords "model:|system:|user:|assistant:"
+
   def sigil_LLM(lines, _opts) do
     lines |> text_to_prompts()
   end
 
   defp text_to_prompts(text) when is_binary(text) do
-    model = extract_model(text) |> String.trim()
-    messages = extract_messages(text)
-    [model: model, messages: messages]
+    extract_prompts(text)
+    |> model_messages()
   end
 
-  defp extract_model(text) do
-    extract_value_after_keyword(text, "model:")
+  defp model_messages([%{content: model_name} | messages]) do
+    [model: model_name, messages: messages]
   end
 
-  defp extract_messages(text) do
-    keywords = ["system:", "user:", "assistant:"]
+  defp extract_prompts(text) do
+    pattern = ~r/(?<key>#{@keywords})\s*(?<value>(?:(?!#{@keywords}).)+)/
 
-    Enum.reduce_while(keywords, [], fn keyword, acc ->
-      case extract_value_after_keyword(text, keyword) do
-        nil ->
-          {:cont, acc}
-
-        value ->
-          role = String.trim(keyword, ":")
-          acc = acc ++ [%{role: role, content: String.trim(value)}]
-          {:cont, acc}
-      end
-    end)
+    Regex.scan(pattern, text)
+    |> Enum.map(&convert_to_map/1)
   end
 
-  defp extract_value_after_keyword(text, keyword) do
-    pattern = ~r/#{keyword}\s*(.*?)(?=model:|system:|user:|assistant:|$)/s
-
-    case Regex.run(pattern, text) do
-      [_, value] -> value
-      _ -> nil
-    end
+  defp convert_to_map([_, key, value]) do
+    %{role: String.trim(key, ":"), content: String.trim(value)}
   end
 
   @doc """
