@@ -30,7 +30,7 @@ defmodule AI.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:openai, "~> 0.5.2"},
+      {:openai, "> 0.5.2"},
       {:ex_doc, "~> 0.14", only: :dev, runtime: false}
     ]
   end
